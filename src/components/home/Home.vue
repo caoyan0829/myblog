@@ -27,7 +27,7 @@
         <div class="about_me">
           <h2>关于我</h2>
           <ul>
-            <i><img src="https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws"></i>
+            <i><img :src="aboutUrl"></i>
             <p>{{ aboutMe }}</p>
           </ul>
         </div>
@@ -66,7 +66,7 @@
     </article>
     <footer>
       <p>Design by <a href="" target="_blank">周永个人博客</a> <a
-        href="infopic.html">蜀ICP备11002373号-1</a></p>
+        href="infopic.html">ICP备号</a></p>
     </footer>
     <a href="#" class="cd-top">Top</a>
   </div>
@@ -79,6 +79,7 @@
       return {
         title: '我的博客',
         aboutMe: '新的起点,新的征途',
+        aboutUrl:'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
         classify: [{'name': '学无止境', 'num': '32'}, {'name': '日记', 'num': '11'}],
         recommends: [{'id': '1001', 'title': '你是什么人便会遇上什么人'}, {'id': '1001', 'title': '个人博客模板'}],
         articles: [{
