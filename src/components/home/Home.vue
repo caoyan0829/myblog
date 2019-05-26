@@ -59,7 +59,7 @@
       <main class="r_box" v-for="item in articles">
         <li><i v-if="item.imgUrl != ''"><a href="javascript: void(0)" @click="back(item)"><img
           :src="item.imgUrl"></a></i>
-          <h3><a href="infopic.html">{{item.title}}</a></h3>
+          <h3><a href="javascript: void(0)" @click="back(item)">{{item.title}}</a></h3>
           <p>{{item.shortText}}</p>
         </li>
       </main>
@@ -113,7 +113,8 @@
         })
       },
       back(obj) {
-        console.log('back method:' + obj);
+        console.log('back method:' + JSON.stringify(obj));
+        this.$router.push('/info');
       }
 
     }

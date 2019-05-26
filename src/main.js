@@ -1,14 +1,22 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
+import VueRouter from 'vue-router'
+import routers from './routers'
+
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
-/* eslint-disable no-new */
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: routers
+})
+
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  router,
+  render: h => h(App)
 })
