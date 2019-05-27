@@ -82,7 +82,7 @@
     name: 'myHome',
     data() {
       return {
-        title: '我的博客',
+        title: '简单笔记',
         aboutMe: '新的起点,新的征途',
         aboutUrl: 'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
         classify: [{'name': '学无止境', 'num': '32'}, {'name': '日记', 'num': '11'}],
