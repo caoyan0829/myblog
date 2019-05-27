@@ -1,4 +1,4 @@
-import Home from './components/home/Home.vue'
+import Home from './components/home/home.vue'
 import Info from './components/info/info.vue'
 
 const routers = [
@@ -12,7 +12,7 @@ const routers = [
     component: Home
   },
   {
-    path: '/info',
+    path: '/info/:id',
     name: 'info',
     component: Info
   }

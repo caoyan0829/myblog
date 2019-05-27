@@ -14,11 +14,17 @@
             <input name="Submit" class="input_submit" value="搜索" type="submit">
           </form>
         </div>
-        <h2 id="mnavh"><span class="navicon"></span></h2>
         <ul id="starlist">
-          <li><a href="index.html">首页</a></li>
-          <li><a href="gbook.html">留言</a></li>
-          <li><a href="about.html">关于我</a></li>
+          <li><a href="/">首页</a></li>
+          <li>
+            <router-link :to="{path:'/info'}">生活</router-link>
+          </li>
+          <li>
+            <router-link :to="{path:'/info'}">留言</router-link>
+          </li>
+          <li>
+            <router-link :to="{path:'/info'}">关于我</router-link>
+          </li>
         </ul>
       </nav>
     </header>
@@ -38,7 +44,7 @@
           </ul>
         </div>
         <div class="tuijian">
-          <h2>站长推荐</h2>
+          <h2>最新推荐</h2>
           <ul v-for="item in recommends">
             <li><a href="javascript: void(0)" @click="back(item)"> {{ item.title }}</a></li>
           </ul>
@@ -65,8 +71,7 @@
       </main>
     </article>
     <footer>
-      <p>Design by <a href="" target="_blank">周永个人博客</a> <a
-        href="infopic.html">ICP备号</a></p>
+      <p><a href="/" target="_blank">个人博客</a> <a href="infopic.html">ICP备号</a></p>
     </footer>
     <a href="#" class="cd-top">Top</a>
   </div>
@@ -79,7 +84,7 @@
       return {
         title: '我的博客',
         aboutMe: '新的起点,新的征途',
-        aboutUrl:'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
+        aboutUrl: 'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
         classify: [{'name': '学无止境', 'num': '32'}, {'name': '日记', 'num': '11'}],
         recommends: [{'id': '1001', 'title': '你是什么人便会遇上什么人'}, {'id': '1001', 'title': '个人博客模板'}],
         articles: [{
@@ -114,9 +119,8 @@
       },
       back(obj) {
         console.log('back method:' + JSON.stringify(obj));
-        this.$router.push('/info');
+        this.$router.push({path: '/info/1002'});
       }
-
     }
   }
 </script>
@@ -125,5 +129,4 @@
   @import "../../assets/css/base.css";
   @import "../../assets/css/index.css";
   @import "../../assets/css/m.css";
-
 </style>
