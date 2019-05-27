@@ -91,8 +91,8 @@
             <p class="diggit"><a href="JavaScript:void(0);"> 赞一个！ </a>(<b id="diggnum">13</b>)</p>
           </div>
           <div class="nextinfo">
-            <p>上一篇：<a href="/news/life/2018-03-13/804.html">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</a></p>
-            <p>下一篇：<a href="/news/life/">返回列表</a></p>
+            <p>上一篇：<a href="/info/1005">如何坚持自己的原则</a></p>
+            <p>下一篇：<a href="/home">返回列表</a></p>
           </div>
 
           <div class="news_pl">
