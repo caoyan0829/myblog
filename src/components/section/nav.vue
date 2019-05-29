@@ -4,14 +4,11 @@
       <nav>
         <div class="logo"><a href="/">{{title}}</a></div>
         <div class="search">
-          <form action="" method="post" name="searchform" id="searchform">
-            <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);"
-                   onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}"
-                   onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-            <input name="show" value="title" type="hidden">
-            <input name="tempid" value="1" type="hidden">
-            <input name="tbname" value="news" type="hidden">
-            <input name="Submit" class="input_submit" value="搜索" type="submit">
+          <form method="post" name="searchform" id="searchform" @submit.prevent="search">
+            <input name="keyboard" id="keyboard" class="input_text"
+                   style="color: rgb(153, 153, 153);" type="text"
+                   v-model="keywords" placeholder="请输入关键字词"/>
+            <input name="Submit" class="input_submit" value="搜索" type="submit"/>
           </form>
         </div>
         <ul id="starlist">
@@ -36,10 +33,19 @@
     name: 'myNav',
     data() {
       return {
-        title: '简单笔记'
+        title: '简单笔记',
+        keywords: ''
       }
     },
     methods: {
+      search(e) {
+        console.log('search:' + this.keywords);
+        let keyword = this.keywords;
+        if (!keyword) {
+          console.log('search is null');
+          return;
+        }
+      },
       back(obj) {
         console.log('back nav method:' + JSON.stringify(obj));
         this.$router.push({path: '/info/1003'});
