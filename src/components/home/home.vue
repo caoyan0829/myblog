@@ -47,6 +47,14 @@
 
   export default {
     name: 'myHome',
+    components: {
+      Concern,
+      Links,
+      MyRecommend,
+      Classify,
+      AboutMe,
+      Nav
+    },
     data() {
       return {
         articles: [{
@@ -123,15 +131,11 @@
       },
       page(curPage) {
         console.log('curPage:' + curPage);
+      },
+      search(keyword) {
+        console.log("home search:" + keyword);
+
       }
-    },
-    components: {
-      Concern,
-      Links,
-      MyRecommend,
-      Classify,
-      AboutMe,
-      Nav
     }
   }
 </script>

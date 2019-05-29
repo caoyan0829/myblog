@@ -39,11 +39,13 @@
     },
     methods: {
       search(e) {
-        console.log('search:' + this.keywords);
         let keyword = this.keywords;
         if (!keyword) {
           console.log('search is null');
           return;
+        } else {
+          //子组件调用父组件方法
+          this.$parent.search(keyword);
         }
       },
       back(obj) {
