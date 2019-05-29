@@ -1,59 +1,37 @@
 <template>
-  <div class="app">
-    <Nav></Nav>
-    <article>
-      <aside class="l_box">
-        <div class="about_me">
-          <h2>关于我</h2>
-          <ul>
-            <i><img :src="aboutUrl"></i>
-            <p>{{ aboutMe }}</p>
-          </ul>
+  <div id="nav">
+    <header class="header-navigation" id="header">
+      <nav>
+        <div class="logo"><a href="/">{{title}}</a></div>
+        <div class="search">
+          <form action="" method="post" name="searchform" id="searchform">
+            <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);"
+                   onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}"
+                   onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+            <input name="show" value="title" type="hidden">
+            <input name="tempid" value="1" type="hidden">
+            <input name="tbname" value="news" type="hidden">
+            <input name="Submit" class="input_submit" value="搜索" type="submit">
+          </form>
         </div>
-        <div class="fenlei">
-          <h2>文章分类</h2>
-          <ul v-for="item in classify">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.name }} ({{item.num}})</a></li>
-          </ul>
-        </div>
-        <div class="tuijian">
-          <h2>最新推荐</h2>
-          <ul v-for="item in recommends">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.title }}</a></li>
-          </ul>
-        </div>
-        <div class="links">
-          <h2>友情链接</h2>
-          <ul>
-            <a href="">个人博客</a> <a href="">周永博客</a>
-          </ul>
-        </div>
-        <div class="guanzhu">
-          <h2>关注我 么么哒</h2>
-          <ul>
-            <img src="../../assets/images/wx.jpg">
-          </ul>
-        </div>
-      </aside>
-      <main class="r_box" v-for="item in articles">
-        <li><i v-if="item.imgUrl != ''"><a href="javascript: void(0)" @click="back(item)"><img
-          :src="item.imgUrl"></a></i>
-          <h3><a href="javascript: void(0)" @click="back(item)">{{item.title}}</a></h3>
-          <p>{{item.shortText}}</p>
-        </li>
-      </main>
-    </article>
-    <footer>
-      <p><a href="/" target="_blank">个人博客</a> <a href="infopic.html">ICP备号</a></p>
-    </footer>
-    <a href="#" class="cd-top">Top</a>
+        <ul id="starlist">
+          <li><a href="/">首页</a></li>
+          <li>
+            <router-link :to="{path:'/info'}">生活</router-link>
+          </li>
+          <li>
+            <router-link :to="{path:'/info'}">留言</router-link>
+          </li>
+          <li>
+            <router-link :to="{path:'/info'}">关于我</router-link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </template>
 
 <script>
-
-  import Nav from '@/components/home/nav.vue'
-
   export default {
     name: 'myHome',
     data() {
@@ -97,9 +75,6 @@
         console.log('back method:' + JSON.stringify(obj));
         this.$router.push({path: '/info/1002'});
       }
-    },
-    components: {
-      Nav
     }
   }
 </script>
