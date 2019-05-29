@@ -134,7 +134,14 @@
       },
       search(keyword) {
         console.log("home search:" + keyword);
-
+        //获取后台数据
+        this.articles = [{
+          'id': '1111',
+          'title': '擦肩而过111',
+          'shortText': '《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的',
+          'imgUrl': 'https://dpic.tiankong.com/82/9f/QJ6333551457.jpg?x-oss-process=style/670ws'
+        }
+        ];
       }
     }
   }
