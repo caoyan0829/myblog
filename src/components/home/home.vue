@@ -3,37 +3,11 @@
     <Nav></Nav>
     <article>
       <aside class="l_box">
-        <div class="about_me">
-          <h2>关于我</h2>
-          <ul>
-            <i><img :src="aboutUrl"></i>
-            <p>{{ aboutMe }}</p>
-          </ul>
-        </div>
-        <div class="fenlei">
-          <h2>文章分类</h2>
-          <ul v-for="item in classify">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.name }} ({{item.num}})</a></li>
-          </ul>
-        </div>
-        <div class="tuijian">
-          <h2>最新推荐</h2>
-          <ul v-for="item in recommends">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.title }}</a></li>
-          </ul>
-        </div>
-        <div class="links">
-          <h2>友情链接</h2>
-          <ul>
-            <a href="">个人博客</a> <a href="">周永博客</a>
-          </ul>
-        </div>
-        <div class="guanzhu">
-          <h2>关注我 么么哒</h2>
-          <ul>
-            <img src="../../assets/images/wx.jpg">
-          </ul>
-        </div>
+        <AboutMe></AboutMe>
+        <Classify></Classify>
+        <my-recommend></my-recommend>
+        <links></links>
+        <concern></concern>
       </aside>
       <main class="r_box" v-for="item in articles">
         <li><i v-if="item.imgUrl != ''"><a href="javascript: void(0)" @click="back(item)"><img
@@ -51,18 +25,18 @@
 </template>
 
 <script>
-
-  import Nav from '@/components/home/nav.vue'
+  //import section components
+  import Nav from '../section/nav';
+  import AboutMe from "../section/aboutMe";
+  import Classify from "../section/classify";
+  import MyRecommend from "../section/recommends";
+  import Links from "../section/links";
+  import Concern from "../section/concern";
 
   export default {
     name: 'myHome',
     data() {
       return {
-        title: '简单笔记',
-        aboutMe: '新的起点,新的征途',
-        aboutUrl: 'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
-        classify: [{'name': '学无止境', 'num': '32'}, {'name': '日记', 'num': '11'}],
-        recommends: [{'id': '1001', 'title': '你是什么人便会遇上什么人'}, {'id': '1001', 'title': '个人博客模板'}],
         articles: [{
           'id': '1001',
           'title': '你是什么人便会遇上什么人',
@@ -99,6 +73,11 @@
       }
     },
     components: {
+      Concern,
+      Links,
+      MyRecommend,
+      Classify,
+      AboutMe,
       Nav
     }
   }
