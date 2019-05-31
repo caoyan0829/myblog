@@ -1,67 +1,13 @@
 <template>
   <div class="app">
-    <header class="header-navigation" id="header">
-      <nav>
-        <div class="logo"><a href="/">{{title}}</a></div>
-        <div class="search">
-          <form action="" method="post" name="searchform" id="searchform">
-            <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);"
-                   onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}"
-                   onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-            <input name="show" value="title" type="hidden">
-            <input name="tempid" value="1" type="hidden">
-            <input name="tbname" value="news" type="hidden">
-            <input name="Submit" class="input_submit" value="搜索" type="submit">
-          </form>
-        </div>
-        <ul id="starlist">
-          <li><a href="/">首页</a></li>
-          <li>
-            <router-link :to="{path:'/info'}">生活</router-link>
-          </li>
-          <li>
-            <router-link :to="{path:'/info'}">留言</router-link>
-          </li>
-          <li>
-            <router-link :to="{path:'/info'}">关于我</router-link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Nav></Nav>
     <article>
       <aside class="l_box">
-        <div class="about_me">
-          <h2>关于我</h2>
-          <ul>
-            <i><img :src="aboutUrl"></i>
-            <p>{{ aboutMe }}</p>
-          </ul>
-        </div>
-        <div class="fenlei">
-          <h2>文章分类</h2>
-          <ul v-for="item in tags">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.name }} ({{item.num}})</a></li>
-          </ul>
-        </div>
-        <div class="tuijian">
-          <h2>最新推荐</h2>
-          <ul v-for="item in recommends">
-            <li><a href="javascript: void(0)" @click="back(item)"> {{ item.title }}</a></li>
-          </ul>
-        </div>
-        <div class="links">
-          <h2>个人链接</h2>
-          <ul>
-            <a href="">个人博客</a>
-            <a href="">周永博客</a>
-          </ul>
-        </div>
-        <div class="guanzhu">
-          <h2>关注我</h2>
-          <ul>
-            <img src="../../assets/images/wx.jpg">
-          </ul>
-        </div>
+        <AboutMe></AboutMe>
+        <Classify></Classify>
+        <my-recommend></my-recommend>
+        <links></links>
+        <concern></concern>
       </aside>
       <main>
         <div class="infosbox">
@@ -94,7 +40,6 @@
             <p>上一篇：<a href="/info/1005">如何坚持自己的原则</a></p>
             <p>下一篇：<a href="/home">返回列表</a></p>
           </div>
-
           <div class="news_pl">
             <h2>文章评论</h2>
             <!--
@@ -120,16 +65,30 @@
         </div>
       </main>
     </article>
-    <footer>
-      <p><a href="/" target="_blank">个人博客</a> <a href="/">ICP备号</a></p>
-    </footer>
-    <a href="#" class="cd-top">Top</a>
+    <foot></foot>
   </div>
 </template>
 
 <script>
+  import Nav from '../section/nav';
+  import AboutMe from "../section/aboutMe";
+  import Classify from "../section/classify";
+  import MyRecommend from "../section/recommends";
+  import Links from "../section/links";
+  import Concern from "../section/concern";
+  import Foot from "../section/foot";
+
   export default {
     name: 'myInfo',
+    components: {
+      Nav,
+      Foot,
+      Concern,
+      Links,
+      MyRecommend,
+      Classify,
+      AboutMe
+    },
     data() {
       return {
         title: '简单笔记',
@@ -147,7 +106,7 @@
         articleDate: '2019-05-27 10:34:56',
         readNum: '300',
         articleContent: '20岁时，我担心别人如何看我；40岁时，我不在乎别人怎么看我；60岁时，我发现他们根本不看我。请记住：有两种事我们应该尽量少干，一是用自己的嘴干扰别人的人生，二是靠别人的脑子思考自己的人生。',
-        mdHtml:'<p>在fastjson和jackson的结果中，原来类中的isSuccess字段被序列化成success，并且其中还包含hollis值。而Gson中只有isSuccess字段。</p>\n' +
+        mdHtml: '<p>在fastjson和jackson的结果中，原来类中的isSuccess字段被序列化成success，并且其中还包含hollis值。而Gson中只有isSuccess字段。</p>\n' +
           '<p>我们可以得出结论：fastjson和jackson在把对象序列化成json字符串的时候，是通过反射遍历出该类中的所有getter方法，得到getHollis和isSuccess，然后根据JavaBeans规则，他会认为这是两个属性hollis和success的值。直接序列化成json:</p>\n' +
           '<pre><code class="java">{“hollis”:”hollischuang”,”success”:true}\n' +
           '</code></pre>\n' +
@@ -207,8 +166,11 @@
       },
       back(obj) {
         console.log('back method:' + obj);
+      },
+      search(keyword) {
+        console.log("info search:" + keyword);
+        this.$router.push({path: '/'});
       }
-
     }
   }
 </script>
@@ -218,5 +180,4 @@
   @import "../../assets/css/index.css";
   @import "../../assets/css/info.css";
   @import "../../assets/css/m.css";
-
 </style>

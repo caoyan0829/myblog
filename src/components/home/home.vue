@@ -29,10 +29,7 @@
         </div>
       </main>
     </article>
-    <footer>
-      <p><a href="/" target="_blank">个人博客</a> <a href="/">ICP备号</a></p>
-    </footer>
-    <a href="#" class="cd-top">Top</a>
+    <foot></foot>
   </div>
 </template>
 
@@ -44,10 +41,12 @@
   import MyRecommend from "../section/recommends";
   import Links from "../section/links";
   import Concern from "../section/concern";
+  import Foot from "../section/foot";
 
   export default {
     name: 'myHome',
     components: {
+      Foot,
       Concern,
       Links,
       MyRecommend,
