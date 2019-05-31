@@ -15,7 +15,8 @@
             <h3 class="news_title">{{articleTitle}}</h3>
             <div class="bloginfo">
               <ul>
-                <li class="author">作者：<a href="/">{{author}}</a></li>
+                <li class="article_type">{{articleTypeText}}</li>
+                <li class="author">作者: {{author}}</li>
                 <li class="timer">时间：{{articleDate}}</li>
                 <li class="view">{{readNum}} 人已阅读</li>
               </ul>
@@ -24,6 +25,10 @@
               <span v-for="tag in tags">
                 <a href="/" target="_blank">{{tag.name}}</a>
               </span>
+            </div>
+            <div class="ps_about">
+              <strong></strong>
+              <span>{{remark}}</span>
             </div>
             <div class="news_about">
               <strong></strong>
@@ -95,6 +100,7 @@
         aboutMe: '新的起点,新的征途',
         aboutUrl: 'https://dpic.tiankong.com/r1/pj/QJ6609096149.jpg?x-oss-process=style/670ws',
         recommends: [{'id': '1001', 'title': '你是什么人便会遇上什么人'}, {'id': '1001', 'title': '个人博客模板'}],
+        remark: 'ps:本篇内容由站长网路整理汇总,如有雷同,请留言 or 微信联系me.',
         mind: '人生，不要被安逸所控制，决定成功的，是奋斗。人生，不要被他人所控制，决定命运的，是自己。静悄悄的努力，活成自己想要的模样。',
         tags: [
           {'id': 1001, 'name': 'JavaSE', 'num': '16'},
@@ -102,6 +108,7 @@
           {'id': 1003, 'name': 'JVM', 'num': '34'}
         ],
         articleTitle: '为什么阿里巴巴禁止开发人员使用isSuccess作为变量名',
+        articleTypeText: '整理',
         author: '张三',
         articleDate: '2019-05-27 10:34:56',
         readNum: '300',
@@ -180,4 +187,12 @@
   @import "../../assets/css/index.css";
   @import "../../assets/css/info.css";
   @import "../../assets/css/m.css";
+
+  .article_type {
+    color: #3399FF;
+  }
+
+  .ps_about {
+    color: #C0C0C0;
+  }
 </style>

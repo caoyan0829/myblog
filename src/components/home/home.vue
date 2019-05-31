@@ -4,7 +4,7 @@
     <article>
       <aside class="l_box">
         <AboutMe></AboutMe>
-        <Classify></Classify>
+        <tags></tags>
         <my-recommend></my-recommend>
         <links></links>
         <concern></concern>
@@ -37,20 +37,20 @@
   //import section components
   import Nav from '../section/nav';
   import AboutMe from "../section/aboutMe";
-  import Classify from "../section/classify";
   import MyRecommend from "../section/recommends";
   import Links from "../section/links";
   import Concern from "../section/concern";
   import Foot from "../section/foot";
+  import Tags from "../section/tags";
 
   export default {
     name: 'myHome',
     components: {
+      Tags,
       Foot,
       Concern,
       Links,
       MyRecommend,
-      Classify,
       AboutMe,
       Nav
     },
