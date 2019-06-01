@@ -130,6 +130,16 @@
       },
       page(curPage) {
         console.log('curPage:' + curPage);
+        this.http.post(this.ports.article.list, {
+          currentPage: '2',
+          tag: '1001'
+        }, res => {
+          if (res.success) {
+            // 返回正确的处理
+          } else {
+            // 返回错误的处理
+          }
+        })
       },
       search(keyword) {
         console.log("home search:" + keyword);

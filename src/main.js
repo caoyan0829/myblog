@@ -4,11 +4,15 @@ import App from './App'
 import axios from 'axios'
 import VueRouter from 'vue-router'
 import routers from './routers'
+import http from './request/http.js'
+import ports from './request/ports'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.http = http
+Vue.prototype.ports = ports
 
 Vue.use(VueRouter)
 Vue.use(mavonEditor)
