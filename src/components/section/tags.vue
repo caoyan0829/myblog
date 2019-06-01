@@ -5,15 +5,16 @@
       <ul>
         <a href="/">JAVA</a>
         <a href="/">Spring</a>
-        <a href="/">SpringMVC</a>
-        <a href="/">SpringCloud</a>
         <a href="/">MyBatis</a>
         <a href="/">MYSQL</a>
+        <a href="/">Redis</a>
+        <a href="/">MQ</a>
         <a href="/">JVM</a>
         <a href="/">Threads</a>
-        <a href="/">ElasticSearch</a>
+        <a href="/">ES</a>
         <a href="/">Nginx</a>
         <a href="/">Docker</a>
+        <a href="/">ZooKeeper</a>
         <a href="/">Dubbo</a>
         <a href="/">IDEA</a>
         <a href="/">git</a>
